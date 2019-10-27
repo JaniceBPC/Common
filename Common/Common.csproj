@@ -14,16 +14,19 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702</NoWarn>
   </PropertyGroup>
-  <ItemGroup>
-    <COMReference Include="Microsoft.Office.Core.dll">
-      <Guid>2df8d04c-5bfa-101b-bde5-00aa0044de52</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>8</VersionMinor>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Lcid>0</Lcid>
-      <Isolated>false</Isolated>
-    </COMReference>
-  </ItemGroup>
+  <PropertyGroup>
+    <SolutionFile></SolutionFile>
+    <NugetExecutable>C:\NuGet\Bin\nuget.exe</NugetExecutable>
+    <NuspecFile></NuspecFile>
+  </PropertyGroup>
+  <Target Name = "Compile">
+    <MSBuild Projects="$(SolutionFile)" Properties="Configuration=Release" />
+  </Target>
+  <Target Name = "Package">
+    <!-- You could use the MSBuild Copy task here to move the compiled code into
+           a structure that fits your desired package format -->
+    <Exec Command="&quot;$(NugetExecutable)&quot; pack $(NuspecFile)" />
+  </Target>
   <ItemGroup>
     <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.2.12-alpha">
       <PrivateAssets>all</PrivateAssets>
@@ -35,6 +38,7 @@
     <PackageReference Include="Prism.Unity" Version="7.2.0.1367" />
     <PackageReference Include="System.Data.Common" Version="4.3.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.7.0" />
+    <PackageReference Include="System.Resources.Extensions" Version="4.6.0" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">

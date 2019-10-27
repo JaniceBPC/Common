@@ -1,0 +1,1 @@
+nuget add JbpcCommon.1.0.0.nupkg -source c:\Nuget\Packages
