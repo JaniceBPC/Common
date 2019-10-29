@@ -3,7 +3,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>Common</AssemblyName>
+    <AssemblyName>Jbpc.Common</AssemblyName>
     <SignAssembly>false</SignAssembly>
     <RepositoryUrl>https://github.com/JaniceBPC/Common</RepositoryUrl>
     <Authors>Janice Kierstead</Authors>
@@ -19,10 +19,10 @@
     <NugetExecutable>C:\NuGet\Bin\nuget.exe</NugetExecutable>
     <NuspecFile></NuspecFile>
   </PropertyGroup>
-  <Target Name = "Compile">
+  <Target Name="Compile">
     <MSBuild Projects="$(SolutionFile)" Properties="Configuration=Release" />
   </Target>
-  <Target Name = "Package">
+  <Target Name="Package">
     <!-- You could use the MSBuild Copy task here to move the compiled code into
            a structure that fits your desired package format -->
     <Exec Command="&quot;$(NugetExecutable)&quot; pack $(NuspecFile)" />
