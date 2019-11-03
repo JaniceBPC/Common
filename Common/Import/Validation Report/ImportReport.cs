@@ -39,7 +39,7 @@ namespace Jbpc.Common.Import
 
             for (int i = 0; i < importResults.Count; i++)
             {
-                valuesGrid[0] = importResults[i].ValidationResult.ToString();
+                valuesGrid[0] = importResults[i].ValidationResultCollection.ToString();
 
                 valuesGrid.NthRow++;
             }

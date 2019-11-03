@@ -20,7 +20,7 @@ namespace Jbpc.Common.Import
         public ObjectImportResult Import(DataRow dataRow, int nthRow)
         {
             TExtractedAttributes extractedAttributes;
-            ValidationResult validationResult;
+            ValidationResultCollection validationResultCollection;
 
             try
             {
@@ -28,21 +28,21 @@ namespace Jbpc.Common.Import
             }
             catch (Exception ex)
             {
-                return new ObjectImportResult(dataRow, new ValidationResult(new ExtractAttributesException(ex)) );
+                return new ObjectImportResult(dataRow, new ValidationResultCollection(new ExtractAttributesException(ex)) );
             }
 
             try
             {
-                validationResult = validate.ValidateAttributes(extractedAttributes);
+                validationResultCollection = validate.ValidateAttributes(extractedAttributes);
             }
             catch (Exception ex)
             {
-                return new ObjectImportResult(dataRow, new ValidationResult(new ValidationException(ex)));
+                return new ObjectImportResult(dataRow, new ValidationResultCollection(new ValidationException(ex)));
             }
 
-            if (!validationResult.IsOk)
+            if (!validationResultCollection.IsOk)
             {
-                return new ObjectImportResult(dataRow, validationResult);
+                return new ObjectImportResult(dataRow, validationResultCollection);
             }
 
             try
@@ -51,12 +51,12 @@ namespace Jbpc.Common.Import
             }
             catch (Exception ex)
             {
-                validationResult.Add(new instantiationException(ex));
+                validationResultCollection.Add(new instantiationException(ex));
 
-                return new ObjectImportResult(dataRow, validationResult);
+                return new ObjectImportResult(dataRow, validationResultCollection);
             }
 
-            return new ObjectImportResult(dataRow, validationResult);
+            return new ObjectImportResult(dataRow, validationResultCollection);
         }
     }
 }

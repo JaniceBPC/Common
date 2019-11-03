@@ -7,7 +7,7 @@ namespace Jbpc.Common.ExtensionMethods
 
     public static class GeoCoordinateExtensionMethods
     {
-        public static double FEET_PER_METER = 3.28084;
+        private static double FEET_PER_METER = 3.28084;
 
         public static int GetDistanceToInFeet(this GeoCoordinate a, GeoCoordinate b)
         {

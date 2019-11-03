@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 
 namespace Jbpc.Common.ExtensionMethods
@@ -28,7 +29,7 @@ namespace Jbpc.Common.ExtensionMethods
 
             var missingColumnNames = fieldNames
                 .ToList()
-                .Where(x => !columnNames.Exists(g => g.ToUpper() == x.ToUpper()))
+                .Where(x => !columnNames.Exists(g => g.ToUpper(CultureInfo.InvariantCulture) == x.ToUpper(CultureInfo.InvariantCulture)))
                 .ToList();
 
             return missingColumnNames;

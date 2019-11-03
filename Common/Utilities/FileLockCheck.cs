@@ -8,13 +8,15 @@ using System.IO;
 
 namespace Jbpc.Common.Utilities
 {
-    public class FileLockCheck
+    public static class FileLockCheck
     {
         public static bool IsFileLocked(string filePath)
         {
             try
             {
-                using (File.Open(filePath, FileMode.Open)) { }
+                using var fileStream = File.Open(filePath, FileMode.Open);
+
+                fileStream.DisposeAsync();
             }
             catch (IOException e)
             {

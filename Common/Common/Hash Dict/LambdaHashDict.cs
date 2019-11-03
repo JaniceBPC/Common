@@ -28,9 +28,9 @@ namespace Jbpc.Common
 
             return dict[hashCode].Single(x => isEquivalent(x));
         }
-        public void Add(TKey key, TValue obj)
+        public void Add(TKey key, TValue @object)
         {
-            Add(obj);
+            Add(@object);
 
             List<TValue> collisionBucket = new List<TValue>();
 
@@ -44,7 +44,7 @@ namespace Jbpc.Common
             {
                 dict.Add(hashCode, collisionBucket);
             }
-            collisionBucket.Add(obj);
+            collisionBucket.Add(@object);
         }
         public void Add(TValue obj)
         {

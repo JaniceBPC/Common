@@ -20,7 +20,7 @@ namespace Jbpc.Common.Excel
                 }
                 catch (ApplicationException ex)
                 {
-                    throw ex;
+                    throw new ApplicationException($"Exceeded max retries acquiring office Application handle={depth}", ex);
                 }
                 catch (Exception)
                 {

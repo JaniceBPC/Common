@@ -2,6 +2,6 @@
 {
     public interface IObjectImportResult
     {
-        ValidationResult ValidationResult { get; }
+        ValidationResultCollection ValidationResultCollection { get; }
     }
 }

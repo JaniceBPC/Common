@@ -46,7 +46,7 @@ namespace Jbpc.Common.Reports
             {
                 var workbook = ExcelOperations.OpenReportWorkbook(reportDriver.TemplateWorkbookName);
                 
-                await Task.Run(() => ExcelOperations.PerformWithLock(() => reportDriver.GenerateReport(workbook)));
+                await Task.Run(() => ExcelOperations.PerformWithLock(() => reportDriver.GenerateReport(workbook))).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -61,7 +61,7 @@ namespace Jbpc.Common.Reports
 
             try
             {
-                await Task.Run(() => ExcelOperations.PerformWithLock( generateReport));
+                await Task.Run(() => ExcelOperations.PerformWithLock( generateReport)).ConfigureAwait(false);
             }
             catch (Exception ex)
             {

@@ -2,6 +2,6 @@
 {
     public interface IValidate<in TExtractedAttributes> where TExtractedAttributes : ExtractedAttributes
     {
-        ValidationResult ValidateAttributes(TExtractedAttributes attributes);
+        ValidationResultCollection ValidateAttributes(TExtractedAttributes attributes);
     }
 }

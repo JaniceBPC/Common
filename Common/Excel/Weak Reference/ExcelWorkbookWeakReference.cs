@@ -11,10 +11,11 @@ namespace Jbpc.Common.Excel
         public string Path { get; set; }
         public void Dispose()
         {
-            if (!IsAlreadyOpened && Workbook != null)
+            if (!IsAlreadyOpened)
             {
-                Workbook.Close();
+                Workbook?.Close();
             }
+            GC.SuppressFinalize(this);
         }
     }
 }

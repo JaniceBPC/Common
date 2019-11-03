@@ -18,7 +18,15 @@ namespace Jbpc.Common.ExtensionMethods
         {
             stopwatch.Restart();
 
-            timedAction.Invoke();
+            try
+            {
+                timedAction.Invoke();
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
             return stopwatch.Elapsed;
         }
@@ -26,7 +34,7 @@ namespace Jbpc.Common.ExtensionMethods
         {
             stopwatch.Restart();
 
-            await Task.Run(timedTask);
+            await Task.Run(timedTask).ConfigureAwait(true);
 
             return new TimeSpan(stopwatch.ElapsedTicks);
         }

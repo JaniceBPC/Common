@@ -4,12 +4,12 @@ namespace Jbpc.Common.Import
 {
     public class ObjectImportResult : IObjectImportResult
     {
-        public ObjectImportResult(DataRow dataRow, ValidationResult validationResult)
+        public ObjectImportResult(DataRow dataRow, ValidationResultCollection validationResultCollection)
         {
             DataRow = dataRow;
-            ValidationResult = validationResult;
+            ValidationResultCollection = validationResultCollection;
         }
         public DataRow DataRow { get;  }
-        public ValidationResult ValidationResult { get; }
+        public ValidationResultCollection ValidationResultCollection { get; }
     }
 }

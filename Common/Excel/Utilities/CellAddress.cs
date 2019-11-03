@@ -4,7 +4,10 @@ namespace Jbpc.Common.Excel
 {
     public static class CellAddress
     {
-        public static string A1_A1(int row, int col) => $"{ConvertColumnNumberToLetters(col)}:{row}";
+        public static string A1A1(int row, int col)
+        {
+            return $"{ConvertColumnNumberToLetters(col)}:{row}";
+        }
 
         public static string ConvertColumnNumberToLetters(int col)
         {

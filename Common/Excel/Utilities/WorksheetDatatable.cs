@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Jbpc.Common.Excel
 {
-    public class WorksheetDataTable
+    public class WorksheetDataTable : IDisposable
     {
         private object[,] matrix;
         private readonly  DataTable dataTable = new DataTable();
@@ -65,6 +65,13 @@ namespace Jbpc.Common.Excel
             if (missingHeader.Any()) throw new ApplicationException($"Missing column headers for Excel import file={msg}");
             
             return list;
+        }
+
+        public void Dispose()
+        {
+            dataTable.Dispose();
+
+            GC.SuppressFinalize(this);
         }
     }
 }

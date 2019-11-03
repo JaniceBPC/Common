@@ -2,9 +2,9 @@
 
 namespace Jbpc.Common.Import
 {
-    public class ImportException : ApplicationException
+    public class ImportException 
     {
-        public ImportException(string message) : base(message)
+        public ImportException(string message) 
         {
             this.LogMessage = message;
         }

@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace Jbpc.Common
 {
-    public class MemoryUtilization
+    public class MemoryUtilization : IDisposable
     {
         PerformanceCounter cpuCounter;
         PerformanceCounter ramCounter;
@@ -42,6 +42,13 @@ namespace Jbpc.Common
         {
             ramCounter = new PerformanceCounter("Memory", "Available MBytes", true);
 
+        }
+        public void Dispose()
+        {
+            cpuCounter.Dispose();
+            ramCounter.Dispose();
+
+            GC.SuppressFinalize(this);
         }
     }
 }

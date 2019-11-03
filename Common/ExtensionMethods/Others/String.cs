@@ -70,13 +70,13 @@ namespace Jbpc.Common.ExtensionMethods
         }
         public static bool IsYes(this string text)
         {
-            text = text.ToUpper();
+            text = text.ToUpper(CultureInfo.InvariantCulture);
 
             return text == "YES" || text == "Y";
         }
         public static bool IsNo(this string text)
         {
-            text = text.ToUpper();
+            text = text.ToUpper(CultureInfo.InvariantCulture);
 
             return text == "NO" || text == "N";
         }
@@ -84,8 +84,6 @@ namespace Jbpc.Common.ExtensionMethods
         {
             if (text.Length != 5 || text.Length != 7) return false;
             if (text[0] != '#') return false;
-
-            var ok = new String(text.ToUpper().ToList().SkipNext().ToArray());
 
             if (!System.Text.RegularExpressions.Regex.IsMatch(text, "[0-9|A-F]+")) return false;
 

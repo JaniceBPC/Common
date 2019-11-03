@@ -5,11 +5,11 @@ using Jbpc.Common.Import.ValidationExceptions;
 
 namespace Jbpc.Common.Import
 {
-    public class ValidationResult : IEnumerable<IValidationException>
+    public class ValidationResultCollection : IEnumerable<IValidationException>
     {
         private readonly List<IValidationException> exceptions = new List<IValidationException>();
-        public ValidationResult() { }
-        public ValidationResult(IValidationException validationException)
+        public ValidationResultCollection() { }
+        public ValidationResultCollection(IValidationException validationException)
         {
             exceptions.Add(validationException);
         }
