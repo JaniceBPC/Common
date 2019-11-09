@@ -1,36 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
+
+    <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <UseWPF>true</UseWPF>
     <AssemblyName>Jbpc.Common</AssemblyName>
-    <SignAssembly>false</SignAssembly>
     <RepositoryUrl>https://github.com/JaniceBPC/Common</RepositoryUrl>
     <Authors>Janice Kierstead</Authors>
     <PackageId>JbpcCommon</PackageId>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <RepositoryType>.git</RepositoryType>
   </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;1591</NoWarn>
+    <OutputPath>C:\Program Files\Jbpc\Debug\</OutputPath>
   </PropertyGroup>
-  <PropertyGroup>
-    <SolutionFile></SolutionFile>
-      <Version>1.0.1</Version>
-      <AssemblyVersion>1.0.0.0</AssemblyVersion>
-      <NeutralLanguage></NeutralLanguage>
-    <NugetExecutable>C:\NuGet\Bin\nuget.exe</NugetExecutable>
-    <NuspecFile></NuspecFile>
-    <FileVersion>1.0.0.0</FileVersion>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>C:\Program Files\Jbpc\Release\</OutputPath>
   </PropertyGroup>
-  <Target Name="Compile">
-    <MSBuild Projects="$(SolutionFile)" Properties="Configuration=Release" />
-  </Target>
-  <Target Name="Package">
-    <!-- You could use the MSBuild Copy task here to move the compiled code into
-           a structure that fits your desired package format -->
-    <Exec Command="&quot;$(NugetExecutable)&quot; pack $(NuspecFile)" />
-  </Target>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.7">
       <PrivateAssets>all</PrivateAssets>
@@ -49,6 +36,7 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.7.0" />
     <PackageReference Include="System.Resources.Extensions" Version="4.6.0" />
   </ItemGroup>
+
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -56,6 +44,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
   </ItemGroup>
+
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
