@@ -11,7 +11,7 @@ namespace Jbpc.Common.UnitTests
         public string[] RideLegs { get; set; }
     }
     [TestFixture]
-    public class Tests
+    public class SettingsTests
     {
         private const string SettingsFileName = "MyTestSettings";
         private TestSettings testSettings;
