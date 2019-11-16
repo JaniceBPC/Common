@@ -1,4 +1,4 @@
-﻿using Jbpc.Common.ExtensionMethods;
+﻿using Jbpc.Common.Excel.ExtensionMethods;
 using Microsoft.Office.Interop.Excel;
 
 namespace Jbpc.Common.Reports

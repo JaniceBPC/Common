@@ -38,6 +38,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Jbpc.Common.Excel">
+      <HintPath>C:\Program Files\Jbpc\Debug\netstandard\Jbpc.Common.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole">
+      <HintPath>C:\Program Files\Jbpc\Debug\netstandard\stdole.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

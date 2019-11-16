@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Jbpc.Common.Excel;
+using Jbpc.Common.Excel.ExtensionMethods;
 using Jbpc.Common.Reports;
 using Jbpc.Common.ExtensionMethods;
 using Microsoft.Office.Interop.Excel;

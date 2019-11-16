@@ -14,7 +14,19 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Common\Jbpc.Common.csproj" />
-    <ProjectReference Include="..\Jbpc.Office\Jbpc.Office.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Common">
+      <HintPath>C:\Program Files\Jbpc\Debug\netstandard\Common.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Jbpc.Common.Excel">
+      <HintPath>C:\Program Files\Jbpc\Debug\netstandard\Jbpc.Common.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole">
+      <HintPath>C:\Program Files\Jbpc\Debug\netstandard\stdole.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
