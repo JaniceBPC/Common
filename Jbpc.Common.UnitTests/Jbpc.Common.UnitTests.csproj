@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Common\Jbpc.Common.csproj" />
+    <ProjectReference Include="..\Jbpc.Office\Jbpc.Office.csproj" />
   </ItemGroup>
 
 </Project>
