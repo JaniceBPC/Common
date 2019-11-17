@@ -7,18 +7,33 @@
     <Authors>Janice Kierstead</Authors>
     <PackageId>JbpcCommon</PackageId>
     <RepositoryType>.git</RepositoryType>
+    <Configurations>Debug;Release;DebugLocal</Configurations>
   </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugLocal|AnyCPU'">
+        <NoWarn>1701;1702;1591</NoWarn>
+    </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;1591</NoWarn>
-    <OutputPath>C:\Program Files\Jbpc\Debug\</OutputPath>
+    <OutputPath>C:\Program Files\Jbpc\Debug\netcoreapp3.0\</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>C:\Program Files\Jbpc\Release\</OutputPath>
+    <OutputPath>C:\Program Files\Jbpc\Release\netcoreapp3.0\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
+      <COMReference Include="Microsoft.Office.Excel.dll">
+          <Guid>00020813-0000-0000-c000-000000000046</Guid>
+          <VersionMajor>1</VersionMajor>
+          <VersionMinor>9</VersionMinor>
+          <WrapperTool>tlbimp</WrapperTool>
+          <Lcid>0</Lcid>
+          <Isolated>false</Isolated>
+          <EmbedInteropTypes>true</EmbedInteropTypes>
+      </COMReference>
+
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.7">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -26,9 +41,6 @@
     <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.2.12-alpha">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1000">
-      <NoWarn>NU1701</NoWarn>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="Prism.Unity" Version="7.2.0.1367" />
@@ -40,6 +52,8 @@
   <ItemGroup>
     <Reference Include="Jbpc.Common.Excel">
       <HintPath>C:\Program Files\Jbpc\Debug\netstandard\Jbpc.Common.Excel.dll</HintPath>
+      <EmbedInteropTypes></EmbedInteropTypes>
+      <Private>true</Private>
     </Reference>
     <Reference Include="stdole">
       <HintPath>C:\Program Files\Jbpc\Debug\netstandard\stdole.dll</HintPath>

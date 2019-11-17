@@ -1,6 +1,6 @@
 ﻿using System;
-using Jbpc.Common.Excel;
-using Microsoft.Office.Interop.Excel;
+using System.Reflection;
+using Jbpc.Common.Excel.Proxies;
 using NUnit.Framework;
 
 namespace Jbpc.Common.UnitTests.Excel
@@ -9,25 +9,9 @@ namespace Jbpc.Common.UnitTests.Excel
     public class ExcelTests
     {
         [Test]
-        public void InstantiateExcelApplicationInstantiateExcelApplication()
-        {
-            Application excelApplication = null;
-
-            try
-            {
-                excelApplication = ExcelOperations.ExcelApplication;
-            }
-            catch (Exception)
-            {
-                Assert.Fail("Unable to startup Excel Application");
-            }
-
-            Assert.NotNull(excelApplication, "Unable to startup Excel Application");
-        }
-        [Test]
         public void CreateWorkBook()
         {
-            var workbook = ExcelOperations.NewWorkbook;
+            var workbook = ExcelOperationsProxy.NewWorkbook;
 
             Assert.NotNull(workbook);
 
