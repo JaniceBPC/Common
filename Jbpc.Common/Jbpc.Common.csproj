@@ -16,11 +16,11 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;1591</NoWarn>
-    <OutputPath>C:\Program Files\Jbpc\Debug\</OutputPath>
+    <OutputPath>bin/debug</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>C:\Program Files\Jbpc\Release\</OutputPath>
+    <OutputPath>bin/release</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
